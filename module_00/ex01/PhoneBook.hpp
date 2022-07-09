@@ -8,6 +8,7 @@
 class Contact GetContactInfos(void);
 
 class Contact {
+	int index;
 	std::string FirstName;
 	std::string LastName;
 	std::string NickName;
@@ -16,6 +17,7 @@ class Contact {
 	public:
 	Contact(std::string, std::string, std::string, std::string, std::string);
 	void ShowContent(std::string Content);
+	void ShowCase(int);
 	int IsOccupied();
 	Contact(){;};
 };
