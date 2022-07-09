@@ -2,6 +2,7 @@
 
 int	main(int argc, char **argv)
 {
+	class PhoneBook Alcatel;
 	std::string name;
 
 	while (1)
@@ -11,9 +12,15 @@ int	main(int argc, char **argv)
 		if (name.compare("EXIT") == 0)
 			break;
 		if (name.compare("ADD") == 0)
-			std::cout << "Adding Contact\n";			
+		{
+			std::cout << "Adding Contact\n";	
+			Alcatel.AddContact(Alcatel.GetContactInfos());
+		}
 		if (name.compare("SEARCH") == 0)
+		{
 			std::cout << "Searching contact\n";
+			Alcatel.SearchContact();
+		}
 	}
 	return (0);
 }

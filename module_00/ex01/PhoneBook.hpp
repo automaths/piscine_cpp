@@ -5,17 +5,29 @@
 #include <string>
 #include <iomanip>
 
-// class Contact {
-// 	std::string FirstName;
-// 	std::string LastName;
-// 	std::string NickName;
-// 	std::string PhoneNumber;
-// 	std::string DarkestSecret;
-// };
+class Contact GetContactInfos(void);
 
-// class PhoneBook {
-// 	class Contact Repertory[8];
-// 	class Contact *AddContact(std::string FirstName, std::string LastName, std::string NickName, std::string PhoneNumber, std::string DarkestSecret);
-// };
+class Contact {
+	std::string FirstName;
+	std::string LastName;
+	std::string NickName;
+	std::string PhoneNumber;
+	std::string DarkestSecret;
+	public:
+	Contact(std::string, std::string, std::string, std::string, std::string);
+	void ShowContent(std::string Content);
+	int IsOccupied();
+	Contact(){;};
+};
+
+class PhoneBook {
+	class Contact	Repertory[8];
+	public:
+	void			AddContact(class Contact);
+	class Contact	GetContactInfos(void);
+	void 			SearchContact();
+	void			ClearRepertory(void);
+	// PhoneBook(){};
+};
 
 #endif

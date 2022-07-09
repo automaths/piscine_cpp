@@ -1,4 +1,5 @@
 SRCS			=	./PhoneBook.cpp \
+					./Contact.cpp \
 					./main.cpp
 
 OBJS			= 	$(SRCS:.cpp=.o)
@@ -7,7 +8,7 @@ CC				= 	c++
 RM				= 	rm -f
 CFLAGS			= 	-Wall -Wextra -Werror -std=c++98
 
-NAME			= 	megaphone
+NAME			=  PhoneBook
 
 all:			$(NAME)
 
