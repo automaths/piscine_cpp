@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <string>
-#include <algorithm>
+// #include <algorithm>
 
 class	ShoutOut{
 	std::string Shout;
