@@ -5,7 +5,7 @@ void	PhoneBook::ClearRepertory()
 	std::cout << "Deleting oldest contact\n";
 	unsigned int i = -1;
 	while (++i < 7)
-		Repertory[i + 1] = Repertory[i];
+		Repertory[i] = Repertory[i + 1];
 }
 
 void	PhoneBook::AddContact(class Contact NewContact)
@@ -18,7 +18,7 @@ void	PhoneBook::AddContact(class Contact NewContact)
 	else
 	{
 		ClearRepertory();
-		Repertory[0] = NewContact;
+		Repertory[7] = NewContact;
 	}
 }
 
@@ -28,7 +28,7 @@ void	PhoneBook::SearchContact()
 	
 	std::cout << "Which contact number :";
 	std::getline (std::cin,number);
-	for (char c = '1'; c < '8'; ++c)
+	for (char c = '1'; c < '9'; ++c)
 	{
 		if (number[0] == c)
 		{

@@ -23,8 +23,8 @@ class Contact {
 class PhoneBook {
 	class Contact	Repertory[8];
 	public:
-	void			AddContact(class Contact);
 	class Contact	GetContactInfos(void);
+	void			AddContact(class Contact);
 	void 			SearchContact();
 	void			ClearRepertory(void);
 	// PhoneBook(){};

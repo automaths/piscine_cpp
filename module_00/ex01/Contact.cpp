@@ -32,20 +32,15 @@ class Contact PhoneBook::GetContactInfos(void)
 
 	std::cout << "FirstName: ";
 	std::getline (std::cin,A);
-		std::cout << A;
 	std::cout << "LastName: ";
 	std::getline (std::cin,B);
-		std::cout << B;
 	std::cout << "NickName: ";
 	std::getline (std::cin,C);
-		std::cout << "C";
 	std::cout << "PhoneNumber: ";
 	std::getline (std::cin,D);
-		std::cout << D;
 	std::cout << "DarkestSecret: ";
 	std::getline (std::cin,E);
-		std::cout << E;
-	
+
 	class Contact NewContact(A, B, C, D, E);
 	return (NewContact);
 }
