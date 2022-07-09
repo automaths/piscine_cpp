@@ -24,22 +24,20 @@ void	PhoneBook::AddContact(class Contact NewContact)
 
 void	PhoneBook::SearchContact()
 {
-	// std::string number;
-	
-	// std::setw(10)
-	
-	Repertory[0].ShowCase(1);
-	Repertory[1].ShowCase(2);
-	
-	// std::cout << "Which contact number :";
-	// std::getline (std::cin,number);
-	// for (char c = '1'; c < '9'; ++c)
-	// {
-	// 	if (number[0] == c)
-	// 	{
-	// 		std::cout << "You've asked Contact " << number[0] << "\n";
-	// 		unsigned int i = c - '0' - 1;			
-	// 		Repertory[i].ShowContent("FirstName");
-	// 	}
-	// }
+	std::string number;
+
+	for (unsigned int i = 0; i < 8; ++i)
+		Repertory[i].ShowCase(i + 1);
+
+	std::cout << "Which contact number :";
+	std::getline (std::cin,number);
+	for (char c = '1'; c < '9'; ++c)
+	{
+		if (number[0] == c)
+		{
+			std::cout << "You've asked Contact " << number[0] << "\n";
+			unsigned int i = c - '0' - 1;			
+			Repertory[i].ShowContent("FirstName");
+		}
+	}
 }
