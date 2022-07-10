@@ -6,12 +6,12 @@
 #include "Weapon.hpp"
 
 class HumanB{
-	std::string& item;
+	Weapon* item;
 	std::string name;
 	public:
-	HumanB(std::string str){name = str;};
-	void attack(){std::cout << name << " attack with their " << item << "\n";};
-	void setWeapon(Weapon cls){item = cls.getType();};
+	HumanB(std::string str): name(str){};
+	void attack(){std::cout << name << " attack with their " << item->getType() << "\n";};
+	void setWeapon(Weapon& cls){item = &cls;};
 };
 
 #endif
