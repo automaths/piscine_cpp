@@ -8,11 +8,23 @@ Animal::Animal()
 Dog::Dog() : Animal()
 {
     this->type = "Dog";
+    this->dogBrain = new Brain;
+}
+
+Dog::~Dog()
+{
+    delete[] this->dogBrain;
+}
+
+Cat::~Cat()
+{
+    delete[] this->catBrain;
 }
 
 Cat::Cat() : Animal()
 {
     this->type = "Cat";
+    this->catBrain = new Brain;
 }
 
 std::string Animal::getType() const
@@ -34,18 +46,3 @@ void Cat::makeSound() const
 {
     std::cout << "Miaow Miaouw chacal" << std::endl;
 }
-
-
-t_command 
-{
-    arg
-    redir
-    next : sil y a un pipe
-
-t_global 
-{
-    t_command *premiere execution;
-    t_global *next = si il y a un ;
-}
-
-
