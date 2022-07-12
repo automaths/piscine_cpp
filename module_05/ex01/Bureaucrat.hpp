@@ -23,7 +23,7 @@ class Bureaucrat {
     void loseGrade();
     void GradeTooHighException();
     void GradeTooLowException();
-    void signForm(Form TheForm);
+    void signForm(Form& TheForm);
 };
 
 #endif

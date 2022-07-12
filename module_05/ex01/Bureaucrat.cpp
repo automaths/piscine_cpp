@@ -69,7 +69,7 @@ void    Bureaucrat::GradeTooLowException()
     std::cout << this->name << ": Grade is too low, can't execute" << std::endl;
 }
 
-void    Bureaucrat::signForm(Form TheForm)
+void    Bureaucrat::signForm(Form& TheForm)
 {
     try
     {
