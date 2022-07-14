@@ -16,7 +16,7 @@ class Contact {
 	std::string DarkestSecret;
 	public:
 	Contact(std::string, std::string, std::string, std::string, std::string);
-	void ShowContent(std::string Content);
+	void ShowContent();
 	void ShowCase(int);
 	int IsOccupied();
 	Contact(){;};

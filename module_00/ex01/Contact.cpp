@@ -7,10 +7,13 @@ int	Contact::IsOccupied()
 	return (0);
 }
 
-void	Contact::ShowContent(std::string Content)
+void	Contact::ShowContent()
 {
-	if (Content.compare("FirstName") == 0)
-		std::cout << FirstName << "\n";
+	std::cout << "FirstName: " << FirstName << std::endl;
+	std::cout << "LastName: " << LastName << std::endl;
+	std::cout << "NickName: " << NickName << std::endl;
+	std::cout << "PhoneNumber: " << PhoneNumber << std::endl;
+	std::cout << "DarkestSecret: " << DarkestSecret << std::endl;
 }
 
 void	Contact::ShowCase(int rank)
@@ -62,15 +65,44 @@ class Contact PhoneBook::GetContactInfos(void)
 
 	std::cout << "FirstName: ";
 	std::getline (std::cin,A);
+	while (A.compare("") == 0)
+	{
+		std::cout << "The field must be filled ..." << std::endl;
+		std::cout << "FirstName: ";
+		std::getline (std::cin,A);
+	}
 	std::cout << "LastName: ";
 	std::getline (std::cin,B);
+	while (B.compare("") == 0)
+	{
+		std::cout << "The field must be filled ..." << std::endl;
+		std::cout << "LastName: ";
+		std::getline (std::cin,B);
+	}
 	std::cout << "NickName: ";
 	std::getline (std::cin,C);
+	while (C.compare("") == 0)
+	{
+		std::cout << "The field must be filled ..." << std::endl;
+		std::cout << "NickName: ";
+		std::getline (std::cin,C);
+	}
 	std::cout << "PhoneNumber: ";
 	std::getline (std::cin,D);
+	while (D.compare("") == 0)
+	{
+		std::cout << "The field must be filled ..." << std::endl;
+		std::cout << "PhoneNumber: ";
+		std::getline (std::cin,D);
+	}
 	std::cout << "DarkestSecret: ";
 	std::getline (std::cin,E);
-
+	while (E.compare("") == 0)
+	{
+		std::cout << "The field must be filled ..." << std::endl;
+		std::cout << "DarkestSecret: ";
+		std::getline (std::cin,E);
+	}
 	class Contact NewContact(A, B, C, D, E);
 	return (NewContact);
 }

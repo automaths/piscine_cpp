@@ -29,7 +29,7 @@ void	PhoneBook::SearchContact()
 	for (unsigned int i = 0; i < 8; ++i)
 		Repertory[i].ShowCase(i + 1);
 
-	std::cout << "Which contact number (type from 1 to 8):";
+	std::cout << "Which contact number (type from 1 to 8): ";
 	std::getline (std::cin,number);
 	if (number[0] < '1' || number[0] > '8')
 	{
@@ -42,7 +42,7 @@ void	PhoneBook::SearchContact()
 		{
 			std::cout << "You've asked Contact " << number[0] << "\n";
 			unsigned int i = c - '0' - 1;			
-			Repertory[i].ShowContent("FirstName");
+			Repertory[i].ShowContent();
 		}
 	}
 }
