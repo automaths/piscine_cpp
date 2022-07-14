@@ -1,4 +1,13 @@
-#include "megaphone.hpp"
+#include <iostream>
+#include <string>
+
+class	ShoutOut{
+	std::string Shout;
+	std::string trim(std::string);
+	public:
+	ShoutOut(std::string str) {Shout = ShoutOut::trim(str);};
+	void	ShoutingOut();
+};
 
 std::string	ShoutOut::trim(std::string str)
 {
@@ -13,4 +22,24 @@ void ShoutOut::ShoutingOut() {
 	for (unsigned int i = 0; i < Shout.length(); i++)
 		Shout[i] = toupper(Shout[i]);
 	std::cout << Shout << " ";
+}
+
+int	main(int argc, char **argv)
+{
+	(void)argc;
+
+	if (argc == 1)
+	{
+		ShoutOut megaphone("* LOUD AND UNBEARABLE FEEDBACK NOISE *");
+		megaphone.ShoutingOut();
+	}
+	else
+	{
+		for(int i = 1; i < argc; i++)
+		{
+			ShoutOut megaphone(argv[i]);
+			megaphone.ShoutingOut();
+		}
+	}
+	return (0);
 }
