@@ -28,8 +28,10 @@ class Span
     ~Span();
     void operator=(Span &to_copy);
     void addNumber(int n);
-    typename T::iterator shortestSpan();
+    void addRange(int tab[]);
+    int shortestSpan();
     int longestSpan();
+    void readContent();
 };
 
 template <typename T>
@@ -57,10 +59,19 @@ Span<T>::~Span()
 };
 
 template <typename T>
+void Span<T>::addRange(int tab[])
+{
+    for(int i = 0; i < tab.size(); ++i)
+    {                                  
+        std::cout << *it << std::end;
+    }
+}
+
+template <typename T>
 void Span<T>::addNumber(int n)
 {
     try {
-        if (this->rank + 1 == this->size)
+        if (this->rank == this->size)
             throw(Exception());
         this->content->push_back(n);
         this->rank += 1;
@@ -71,11 +82,31 @@ void Span<T>::addNumber(int n)
 }
 
 template <typename T>
-typename T::iterator Span<T>::shortestSpan()
+int Span<T>::shortestSpan()
 {
-    typename T:: iterator it;
-    it = std::min_element(this->content->begin(), this->content->end());
-    return (it);
+    T copy(this->size);
+    int diff;
+    typename T:: iterator it_one;
+
+    std::copy(this->content->begin(), this->content->end(), copy.begin());
+
+    std::sort(copy.begin(), copy.end());
+
+    diff = 2147483647;
+    for (it_one = copy.begin() + 6; it_one != copy.end(); ++it_one)
+    {
+        if (*it_one - *(it_one - 1) < diff)
+            diff = *it_one - *(it_one - 1);
+    }
+    return (diff);
+}
+
+template <typename T>
+void Span<T>::readContent()
+{
+    typename T:: iterator it_one;
+    for (it_one = this->content->begin(); it_one != this->content->end(); ++it_one)
+        std::cout << *it_one << "." << std::endl;
 }
 
 template <typename T>
@@ -91,7 +122,6 @@ int Span<T>::longestSpan()
         max = std::max_element(this->content->begin(), this->content->end());
         min = std::min_element(this->content->begin(), this->content->end());
         diff = *max - *min;
-        // max -= min;
         return (diff);
     }
     catch (std::exception &e) {
