@@ -5,11 +5,15 @@
 #include <string>
 
 class Weapon{
-	std::string type;
-	public:
-	std::string& getType();
-	Weapon(std::string str){type = str;};
-	void setType(std::string str){type = str;};
+    std::string type;
+    public:
+    Weapon();
+    ~Weapon();
+    Weapon(const Weapon &w);
+    Weapon operator=(const Weapon &w);
+    Weapon(std::string type);
+    const std::string &getType() const;
+    void setType(std::string newType);
 };
 
 #endif
