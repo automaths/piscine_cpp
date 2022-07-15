@@ -20,7 +20,7 @@ void Harl::error(void)
     std::cout << "This is unacceptable! I want to speak to the manager now." << std::endl;
 }
 
-Harl::Harl(void)
+Harl::Harl()
 {
     this->level[0] = "DEBUG";
     this->level[1] = "INFO";
@@ -30,6 +30,28 @@ Harl::Harl(void)
     this->exec[1] = &Harl::info;
     this->exec[2] = &Harl::warning;
     this->exec[3] = &Harl::error;
+}
+
+Harl::~Harl()
+{
+    ;
+}
+
+Harl::Harl(const Harl &h)
+{
+    this->level[0] = "DEBUG";
+    this->level[1] = "INFO";
+    this->level[2] = "WARNING";
+    this->level[3] = "ERROR";
+    this->exec[0] = &Harl::debug;
+    this->exec[1] = &Harl::info;
+    this->exec[2] = &Harl::warning;
+    this->exec[3] = &Harl::error;
+}
+
+Harl Harl::operator=(const Harl &h)
+{   
+    return (*this);
 }
 
 void Harl::complain(std::string str)

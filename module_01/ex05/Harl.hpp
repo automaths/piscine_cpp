@@ -12,8 +12,11 @@ class Harl{
     void warning(void);
     void error(void);
     public: 
+    Harl();
+    ~Harl();
+    Harl(const Harl &h);
+    Harl operator=(const Harl &h);
     void complain(std::string level);
-    Harl(void);
 };
 
 #endif
