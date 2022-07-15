@@ -18,11 +18,15 @@ int main(int argc, char **argv)
 {
     if (argc != 4)
         return (std::cout << "3 inputs needed", 0);
+    if (argv[2][0] == '\0')
+        return (std::cout << "please enter a string to convert", 0);
     std::string line;
     std::string name;
     std::ifstream myfile;
     std::ofstream newfile;
     myfile.open(argv[1]);
+    if (myfile.fail())
+        return (std::cout << "the file couldn't be opened", 0);
     name = argv[1];
     name.append(".replace");
     newfile.open(name);
