@@ -1,5 +1,46 @@
 #include "ClapTrap.hpp"
 
+ClapTrap &ClapTrap::operator=(const ClapTrap &c)
+{
+    if (this != &c)
+    {
+        this->Name = c.getName();
+        this->HitPoint = c.getHitPoint();
+        this->EnergyPoint = c.getEnergyPoint();
+        this->Damage = c.getDamage();
+    }
+    return (*this);
+}
+
+ClapTrap::ClapTrap(const ClapTrap &c)
+{
+    this->Name = c.getName();
+    this->HitPoint = c.getHitPoint();
+    this->EnergyPoint = c.getEnergyPoint();
+    this->Damage = c.getDamage();
+}
+
+
+std::string ClapTrap::getName() const
+{
+    return (this->Name);
+}
+
+int ClapTrap::getHitPoint() const
+{
+    return (this->HitPoint);
+}
+
+int ClapTrap::getEnergyPoint() const
+{
+    return (this->EnergyPoint);
+}
+
+int ClapTrap::getDamage() const
+{
+    return (this->Damage);
+}
+
 void    ClapTrap::attack(const std::string& target)
 {
     std::cout << this->Name << " attack " << target << ", causing " << this->Damage << " points of damage" << std::endl;

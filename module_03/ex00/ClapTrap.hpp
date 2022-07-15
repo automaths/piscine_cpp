@@ -12,9 +12,16 @@ class ClapTrap{
     public:
     ClapTrap(std::string str);
     ~ClapTrap();
+    ClapTrap(const ClapTrap &c);
+    ClapTrap &operator=(const ClapTrap &c);
+    std::string getName() const;
+    int getHitPoint() const;
+    int getEnergyPoint() const;
+    int getDamage() const;
     void attack(const std::string& target);
     void takeDamage(unsigned int damage);
     void beRepaired(unsigned int amout);
 };
+
 
 #endif

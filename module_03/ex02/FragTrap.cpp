@@ -23,3 +23,15 @@ void    FragTrap::highFiveGuys()
     }
     std::cout << this->Name << "is asking for high fives" << std::endl;
 }
+
+FragTrap &FragTrap::operator=(const FragTrap &c)
+{
+    if (this != &c)
+    {
+        this->Name = c.getName();
+        this->HitPoint = c.getHitPoint();
+        this->EnergyPoint = c.getEnergyPoint();
+        this->Damage = c.getDamage();
+    }
+    return (*this);
+}

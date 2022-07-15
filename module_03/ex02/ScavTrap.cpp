@@ -23,3 +23,15 @@ void    ScavTrap::guardGate()
     }
     std::cout << this->Name << "has entered the mode GateKeeper" << std::endl;
 }
+
+ScavTrap &ScavTrap::operator=(const ScavTrap &c)
+{
+    if (this != &c)
+    {
+        this->Name = c.getName();
+        this->HitPoint = c.getHitPoint();
+        this->EnergyPoint = c.getEnergyPoint();
+        this->Damage = c.getDamage();
+    }
+    return (*this);
+}
