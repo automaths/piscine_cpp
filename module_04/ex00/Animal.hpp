@@ -3,30 +3,17 @@
 
 #include <iostream>
 #include <string>
-#include "WrongAnimal.hpp"
 
 class Animal{
     protected:
     std::string type;
     public: 
     Animal();
-    ~Animal(){;};
+    ~Animal();
+    Animal(const Animal &a);
+    Animal operator=(const Animal &a);
     std::string   getType() const;
     virtual void makeSound() const;
-};
-
-class Dog : public Animal
-{
-    public:
-    Dog();
-    void makeSound() const;
-};
-
-class Cat : public Animal
-{
-    public:
-    Cat();
-    void makeSound() const;
 };
 
 #endif

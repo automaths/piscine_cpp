@@ -1,18 +1,11 @@
 #include "Animal.hpp"
+#include "Dog.hpp"
+#include "Cat.hpp"
 
 Animal::Animal()
 {
+    std::cout << "Constructor class Animal called" << std::endl;
     this->type = "Animal";
-}
-
-Dog::Dog() : Animal()
-{
-    this->type = "Dog";
-}
-
-Cat::Cat() : Animal()
-{
-    this->type = "Cat";
 }
 
 std::string Animal::getType() const
@@ -25,27 +18,21 @@ void Animal::makeSound() const
     ;
 }
 
-void Dog::makeSound() const
+Animal::~Animal()
 {
-    std::cout << "Wouaf Wouaf mon gars" << std::endl;
+    std::cout << "Destructor class Animal called" << std::endl;
 }
 
-void Cat::makeSound() const
+Animal::Animal(const Animal &a)
 {
-    std::cout << "Miaow Miaouw chacal" << std::endl;
+    this->type = a.getType();
 }
 
-
-t_command 
+Animal Animal::operator=(const Animal &a)
 {
-    arg
-    redir
-    next : sil y a un pipe
-
-t_global 
-{
-    t_command *premiere execution;
-    t_global *next = si il y a un ;
+    if (this != &a)
+    {
+        this->type = a.getType();
+    }
+    return (*this);
 }
-
-
