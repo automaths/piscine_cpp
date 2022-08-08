@@ -1,4 +1,7 @@
-SRCS			=	./megaphone.cpp \
+SRCS			=	./main.cpp \
+					./Weapon.cpp \
+					./HumanA.cpp \
+					./HumanB.cpp \
 
 OBJS			= 	$(SRCS:.cpp=.o)
 
@@ -6,7 +9,7 @@ CC				= 	c++
 RM				= 	rm -f
 CFLAGS			= 	-Wall -Wextra -Werror -std=c++98
 
-NAME			= 	megaphone
+NAME			=	war
 
 all:			$(NAME)
 
