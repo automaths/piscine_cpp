@@ -9,11 +9,14 @@ CC				= 	c++
 RM				= 	rm -f
 CFLAGS			= 	-Wall -Wextra -Werror -std=c++98
 
-NAME			=	war
+NAME			=  war
 
 all:			$(NAME)
 
-$(NAME):		$(OBJS)
+%.o: %.cpp
+	$(CC) $(CFLAGS) -c $< -o $@
+
+$(NAME): $(OBJS)
 				$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
 
 clean:
