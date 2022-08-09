@@ -29,7 +29,7 @@ int main(int argc, char **argv)
         return (std::cout << "the file couldn't be opened", 0);
     name = argv[1];
     name.append(".replace");
-    newfile.open(name);
+    newfile.open(name.c_str());
     while (getline(myfile, line))
     {
         line = converting(line, argv[2], argv[3]);
