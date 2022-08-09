@@ -7,7 +7,6 @@
 class Fixed{
 	private:
 	int	value;
-	float value_f;
 	static int bits;
 	public:
 	Fixed();
