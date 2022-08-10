@@ -5,12 +5,12 @@ int Fixed::bits = 8;
 Fixed::Fixed(): value(0)
 {
 	std::cout << "Default constructor called" << std::endl;
-	// this->bits = 8;
 }
 
-Fixed::Fixed(const Fixed &h): value(h.value)
+Fixed::Fixed(const Fixed &h)
 {
 	std::cout << "Copy constructor called" << std::endl;
+	this->value = h.getRawBits();
 }
 
 Fixed& Fixed::operator=(const Fixed &h)
@@ -37,5 +37,5 @@ int Fixed::getRawBits(void) const
 void Fixed::setRawBits(int const raw)
 {
 	std::cout << "setRawBits member function called" << std::endl;
-	this->value = raw;
+	this->value = (raw * (1<<8));
 }
