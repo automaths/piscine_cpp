@@ -1,27 +1,38 @@
-SRCS			=	./main.cpp \
-					./ClapTrap.cpp \
-					./ScavTrap.cpp \
-					./FragTrap.cpp \
+NAME	=	action
 
-OBJS			= 	$(SRCS:.cpp=.o)
+CC		=	c++
 
-CC				= 	c++
-RM				= 	rm -f
-CFLAGS			= 	-Wall -Wextra -Werror -std=c++98
+FLAGS	=	-Wall -Wextra -Werror -g -MMD -MP -std=c++98
 
-NAME			=  ClapTrap
+SRC		=	main.cpp \
+			ClapTrap.cpp \
+			ScavTrap.cpp \
+			FragTrap.cpp \
 
-all:			$(NAME)
+OBJ		:=	$(addprefix ./obj/,$(SRC:%.cpp=%.o))
 
-$(NAME):		$(OBJS)
-				$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
+DEP		=	$(addprefix ./obj/,$(OBJ:%.o=%.d))
+
+RM		=	rm -rf
+
+all: $(NAME)
+
+-include $(DEP)
+
+./obj/%.o: ./%.cpp
+	@mkdir -p $(@D)
+	$(CC) $(FLAGS) -o $@ -c $<
+
+$(NAME): $(OBJ)
+	$(CC) $(FLAGS) -o $(NAME) $(OBJ)
 
 clean:
-				$(RM) $(OBJS)
+	$(RM) obj/
 
-fclean:			clean
-				$(RM) $(NAME) $(OBJS)
+fclean:
+	$(RM) obj/
+	$(RM) $(NAME)
 
-re:				fclean $(NAME)
+re: fclean all
 
-.PHONY:			all clean fclean re bonus
+.PHONY: all clean fclean re

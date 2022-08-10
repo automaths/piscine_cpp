@@ -3,8 +3,8 @@
 ClapTrap::ClapTrap()
 {
     this->Name = "Random";
-    this->HitPoint = 1;
-    this->EnergyPoint = 1;
+    this->HitPoint = 10;
+    this->EnergyPoint = 10;
     this->Damage = 0;
     std::cout << "The ClapTrap " << this->Name << " default constructor is called" << std::endl;
 
@@ -82,7 +82,7 @@ void    ClapTrap::takeDamage(unsigned int damage)
 {
     if (this->HitPoint <= 0)
     {
-        std::cout << this->Name << " is already dead ..." << std::endl;
+        std::cout << "ClapTrap " << this->Name << " is already dead ..." << std::endl;
         return ;
     }
     this->HitPoint -= damage;

@@ -1,12 +1,14 @@
-NAME	=	action
+NAME	=	jungle
 
 CC		=	c++
 
 FLAGS	=	-Wall -Wextra -Werror -g -MMD -MP -std=c++98
 
 SRC		=	main.cpp \
-			ClapTrap.cpp \
-			ScavTrap.cpp \
+			Animal.cpp \
+			Cat.cpp \
+			Dog.cpp \
+			Brain.cpp \
 
 OBJ		:=	$(addprefix ./obj/,$(SRC:%.cpp=%.o))
 

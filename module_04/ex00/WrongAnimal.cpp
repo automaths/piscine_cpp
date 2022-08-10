@@ -13,7 +13,7 @@ std::string WrongAnimal::getType() const
 
 void WrongAnimal::makeSound() const
 {
-    ;
+    std::cout << "Bouhouuu the roaaar of the wrong animal beware !" << std::endl;
 }
 
 WrongAnimal::~WrongAnimal()

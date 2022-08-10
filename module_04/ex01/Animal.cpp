@@ -15,7 +15,7 @@ std::string Animal::getType() const
 
 void Animal::makeSound() const
 {
-    std::cout << "This is the base class roaaaar" << std::endl;
+    std::cout << "This is the Animal roaaar" << std::endl;
 }
 
 Animal::~Animal()

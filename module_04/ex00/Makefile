@@ -1,4 +1,4 @@
-NAME	=	fixed
+NAME	=	jungle
 
 CC		=	c++
 

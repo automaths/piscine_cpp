@@ -5,11 +5,9 @@
 #include <string>
 
 class ClapTrap{
-    std::string Name;
-    int HitPoint;
-    int EnergyPoint;
-    int Damage;
     public:
+    
+    ClapTrap();
     ClapTrap(std::string str);
     ~ClapTrap();
     ClapTrap(const ClapTrap &c);
@@ -21,8 +19,14 @@ class ClapTrap{
     void attack(const std::string& target);
     void takeDamage(unsigned int damage);
     void beRepaired(unsigned int amout);
-    friend class ScavTrap;
-    friend class FragTrap;
+
+    protected:
+
+    std::string Name;
+    int HitPoint;
+    int EnergyPoint;
+    int Damage;
 };
+
 
 #endif

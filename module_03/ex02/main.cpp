@@ -4,12 +4,16 @@
 
 int main()
 {
-    FragTrap Salameche("Salameche");
+    FragTrap Scavameche("Scavameche");
 
-    Salameche.attack("Tortank");
-    Salameche.takeDamage(60);
-    Salameche.takeDamage(60);
-    Salameche.beRepaired(4);
-    Salameche.highFiveGuys();
+    Scavameche.attack("Tortank");
+    Scavameche.takeDamage(3);
+    Scavameche.beRepaired(4);
+    Scavameche.takeDamage(10);
+    Scavameche.highFiveGuys();
+    Scavameche.beRepaired(1);
+    Scavameche.attack("Tortank");
+    Scavameche.takeDamage(93);
+    Scavameche.takeDamage(3);
     return 0;
 }

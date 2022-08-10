@@ -15,7 +15,7 @@ std::string Animal::getType() const
 
 void Animal::makeSound() const
 {
-    std::cout << "This is the base class roaaaar" << std::endl;
+    std::cout << "This is the Animal roaaar" << std::endl;
 }
 
 Animal::~Animal()
@@ -27,14 +27,4 @@ Animal::Animal(const Animal &a)
 {
     std::cout << "Copy constructor class Animal called" << std::endl;
     this->type = a.getType();
-}
-
-Animal Animal::operator=(const Animal &a)
-{
-    std::cout << "Copy assignment operator class Animal called" << std::endl;
-    if (this != &a)
-    {
-        this->type = a.getType();
-    }
-    return (*this);
 }
