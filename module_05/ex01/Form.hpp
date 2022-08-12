@@ -30,3 +30,5 @@ class Form
     int signGrade;
     int execGrade;
 };
+
+std::ostream& operator<<(std::ostream &out, Form &TheForm);

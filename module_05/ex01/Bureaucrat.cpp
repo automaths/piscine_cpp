@@ -35,8 +35,8 @@ std::ostream &operator<<(std::ostream &out, Bureaucrat const &worker)
     return (out);
 }
 
-const char* Bureaucrat::GradeTooLowException::what() const throw() {return ("Grade is too low");}
-const char* Bureaucrat::GradeTooHighException::what() const throw() {return ("Grade is too high");}
+const char* Bureaucrat::GradeTooLowException::what() const throw() {return ("from Bureaucrat: Grade is too low");}
+const char* Bureaucrat::GradeTooHighException::what() const throw() {return ("from Bureaucrat: Grade is too high");}
 
 void    Bureaucrat::winGrade()
 {

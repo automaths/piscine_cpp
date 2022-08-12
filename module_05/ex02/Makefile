@@ -7,6 +7,9 @@ FLAGS	=	-Wall -Wextra -Werror -g -MMD -MP -std=c++98
 SRC		=	main.cpp \
 			Bureaucrat.cpp \
 			Form.cpp \
+			ShruberryCreationForm.cpp \
+			RobotomyRequestForm.cpp \
+			PresidentialPardonForm.cpp \
 
 OBJ		:=	$(addprefix ./obj/,$(SRC:%.cpp=%.o))
 

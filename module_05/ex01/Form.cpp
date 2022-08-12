@@ -34,8 +34,8 @@ std::ostream& operator<<(std::ostream &out, Form &TheForm)
     return (out);
 }
 
-const char* Form::GradeTooLowException::what() const throw() {return ("Grade is too low");}
-const char* Form::GradeTooHighException::what() const throw() {return ("Grade is too high");}
+const char* Form::GradeTooLowException::what() const throw() {return ("from Form: Grade is too low");}
+const char* Form::GradeTooHighException::what() const throw() {return ("from Form: Grade is too high");}
 
 int Form::getSignGrade() const {return (this->signGrade);}
 int Form::getExecGrade() const{return (this->execGrade);}

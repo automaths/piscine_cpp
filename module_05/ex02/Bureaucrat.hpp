@@ -4,7 +4,11 @@
 #include <string>
 #include <exception>
 #include <fstream>
+#include <cstdlib>
 #include "Form.hpp"
+#include "ShruberryCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 class Bureaucrat {
     public :

@@ -17,7 +17,6 @@ class Bureaucrat {
 
     void winGrade();
     void loseGrade();
-    void signForm(Form &theForm);
     class GradeTooLowException : public std::exception {virtual const char* what() const throw();};
     class GradeTooHighException : public std::exception {virtual const char* what() const throw();};
 

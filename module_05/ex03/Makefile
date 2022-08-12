@@ -8,6 +8,9 @@ SRC		=	main.cpp \
 			Bureaucrat.cpp \
 			Form.cpp \
 			Intern.cpp \
+			ShruberryCreationForm.cpp \
+			RobotomyRequestForm.cpp \
+			PresidentialPardonForm.cpp \
 
 OBJ		:=	$(addprefix ./obj/,$(SRC:%.cpp=%.o))
 

@@ -1,61 +1,33 @@
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat()
+Bureaucrat::Bureaucrat(): name("Mr. Nobody"), grade(75){/*std::cout << "Bureaucrat Class Default Constructor" << std::endl;*/}
+
+Bureaucrat::Bureaucrat(std::string str, int n): name(str), grade(n)
 {
-    this->name = "Mr. Nobody";
-    this->grade = 75;
-    std::cout << "Bureaucrat Class Default Constructor" << std::endl;
+    if (n > 150)
+        throw (Bureaucrat::GradeTooLowException());
+    if (n < 1)
+        throw (Bureaucrat::GradeTooHighException());
+    // std::cout << "Bureaucrat String and Int Constructor" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(std::string str, int n)
+Bureaucrat::Bureaucrat(const Bureaucrat &b): name(b.getName()), grade(b.getGrade()){/*std::cout << "Class Bureaucrat Copy Constructor << std::endl;"*/}
+
+Bureaucrat& Bureaucrat::operator=(const Bureaucrat &b)
 {
-    this->name = str;
-    this->grade = n;
-    std::cout << "Bureaucrat String and Int Constructor" << std::endl;
+    //std::cout << "Bureaucrat Class Assignement Operator" << std::endl;
+    if (this != &b)
+    {
+        this->name = b.getName();
+        this->grade = b.getGrade();
+    }
+    return (*this);
 }
 
-Bureaucrat::~Bureaucrat()
-{
-    std::cout << "Bureaucrat Class Destructor" << std::endl;
-}
+Bureaucrat::~Bureaucrat(){/*std::cout << "Bureaucrat Class Destructor" << std::endl;*/}
 
-std::string Bureaucrat::getName() const
-{
-    return (this->name);
-}
-
-int Bureaucrat::getGrade() const
-{
-    return (this->grade);
-}
-
-void    Bureaucrat::winGrade()
-{
-    this->grade -= 1;
-    if (this->grade < 1)
-        GradeTooHighException();
-}
-
-void   Bureaucrat::loseGrade()
-{
-    this->grade += 1;
-    if (this->grade > 150)
-        GradeTooLowException();
-}
-
-void    Bureaucrat::GradeTooHighException()
-{
-    Except e("Grade is too high, can't execute");
-    this->grade += 1;
-    throw (e);
-}
-
-void    Bureaucrat::GradeTooLowException()
-{
-    Except e("Grade is too low, can't execute");
-    this->grade -= 1;
-    throw (e);
-}
+std::string Bureaucrat::getName() const{return (this->name);}
+int Bureaucrat::getGrade() const{return (this->grade);}
 
 std::ostream &operator<<(std::ostream &out, Bureaucrat const &worker)
 {
@@ -63,26 +35,44 @@ std::ostream &operator<<(std::ostream &out, Bureaucrat const &worker)
     return (out);
 }
 
+const char* Bureaucrat::GradeTooLowException::what() const throw() {return ("Grade is too low");}
+const char* Bureaucrat::GradeTooHighException::what() const throw() {return ("Grade is too high");}
+
+void    Bureaucrat::winGrade()
+{
+    if (this->grade - 1 < 1)
+        throw (Bureaucrat::GradeTooHighException());
+    this->grade -= 1;
+}
+
+void   Bureaucrat::loseGrade()
+{
+    if (this->grade + 1> 150)
+        throw (Bureaucrat::GradeTooLowException());
+    this->grade += 1;
+}
+
 void    Bureaucrat::signForm(Form& TheForm)
 {
-    Except a("Insufficiand grade to sign");
-    Except b("The form is already signed");
-
     if (TheForm.getSignGrade() < this->grade)
-        throw (a);
-    if (TheForm.getStatus() == 1)
-        throw (b);
-
-    std::cout << "The form is being signed by " << this->name << std::endl;
+    {
+        std::cout << this->name << " couldn't sign " << TheForm.getName() << " because insufficiant grade" << std::endl;
+        return ;
+    }
+    std::cout << this->name << " signed " << TheForm.getName() << std::endl;
     TheForm.execSign();
 }
 
 void    Bureaucrat::executeForm(Form const &TheForm)
 {
-    if (TheForm.getSignGrade() < this->grade)
-        TheForm.InsufficiantGradeException();
-    if (TheForm.getStatus() == 0)
-        TheForm.NotSignedException();
+    if (TheForm.getExecGrade() < this->grade){
+        std::cout << "Can't execute the form grade too low " << std::endl;
+        return ;
+    }
+    if (TheForm.getStatus() == 0){
+        std::cout << "Can't execute a not signed form" << std::endl;
+        return ;
+    }
     std::cout << "The form is being executed by " << this->name << std::endl;
     TheForm.execute(*this);
 }

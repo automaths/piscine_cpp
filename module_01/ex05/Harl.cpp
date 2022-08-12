@@ -46,4 +46,3 @@ void Harl::complain(std::string str)
             (this->*exec[i])();
     }
 }
-
