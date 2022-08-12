@@ -8,19 +8,24 @@ class Form
 {
     public:
     Form();
-    Form(std::string str, int b, int sign, int exec);
+    Form(std::string str, int sign, int exec);
+    Form(Form &f);
     ~Form();
+    Form& operator=(Form &f);
 
     int     getSignGrade() const;
-    int     getStatus() const;
     int     getExecGrade() const;
-    std::string getTitle() const;
+    int     getStatus() const;
+    std::string getName() const;
 
-    void    beSigned(Bureaucrat TheSigner);
+    void    beSigned(Bureaucrat &Worker);
     void    execSign();
 
+    class GradeTooLowException : public std::exception {virtual const char* what() const throw();};
+    class GradeTooHighException : public std::exception {virtual const char* what() const throw();};
+
     private:
-    std::string const name;
+    std::string name;
     int isSigned;
     int signGrade;
     int execGrade;

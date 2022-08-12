@@ -3,23 +3,16 @@
 #include <iostream>
 #include <string>
 #include <exception>
+#include <fstream>
 #include "Form.hpp"
-
-class Except : virtual public std::exception {
-	public:
-	Except(const std::string &str): message(str){}
-	virtual ~Except() throw() {}
-	virtual const char* what() const throw() {return (this->message.c_str());}
-
-	private:
-	std::string message;
-};
 
 class Bureaucrat {
     public :
     Bureaucrat();
     Bureaucrat(std::string str, int n);
+    Bureaucrat(const Bureaucrat &b);
     ~Bureaucrat();
+    Bureaucrat &operator=(const Bureaucrat &b);
 
     std::string getName() const;
     int getGrade() const;
@@ -28,8 +21,8 @@ class Bureaucrat {
     void loseGrade();
     void signForm(Form &theForm);
     void executeForm(Form const &Form);
-    void GradeTooHighException();
-    void GradeTooLowException();
+    class GradeTooLowException : public std::exception {virtual const char* what() const throw();};
+    class GradeTooHighException : public std::exception {virtual const char* what() const throw();};
 
     private:
     std::string name;

@@ -5,21 +5,13 @@
 #include <exception>
 #include "Form.hpp"
 
-class Except : virtual public std::exception {
-	public:
-	Except(const std::string &str): message(str){}
-	virtual ~Except() throw() {}
-	virtual const char* what() const throw() {return (this->message.c_str());}
-
-	private:
-	std::string message;
-};
-
 class Bureaucrat {
     public :
     Bureaucrat();
     Bureaucrat(std::string str, int n);
+    Bureaucrat(const Bureaucrat &b);
     ~Bureaucrat();
+    Bureaucrat &operator=(const Bureaucrat &b);
 
     std::string getName() const;
     int getGrade() const;
@@ -27,27 +19,8 @@ class Bureaucrat {
     void winGrade();
     void loseGrade();
     void signForm(Form &theForm);
-    class GradeTooLowException : public std::exception {
-        public:
-        GradeTooLowException(std::string name): message(name.append(": rank too low")){}
-        virtual ~GradeTooLowException() throw() {}
-        virtual const char* what() const throw() {return (this->message.c_str());}
-        private:
-        std::string message;
-    };
-    class GradeTooHighException : public std::exception {
-        public:
-        GradeTooHighException(std::string name): message(name.append(": rank too high")){}
-        virtual ~GradeTooHighException() throw() {}
-        virtual const char* what() const throw() {return (this->message.c_str());}
-        private:
-        std::string message;
-    };
-    void executeForm(Form const &Form);
-    void AlreadySignedException(std::string title);
-    void GradeInsufficiantSignException(std::string title);
-    void GradeInsufficiantExecException(std::string title);
-    void NotSignedException(std::string title);
+    class GradeTooLowException : public std::exception {virtual const char* what() const throw();};
+    class GradeTooHighException : public std::exception {virtual const char* what() const throw();};
 
     private:
     std::string name;

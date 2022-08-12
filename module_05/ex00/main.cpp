@@ -2,21 +2,23 @@
 
 int main()
 {
-    try
+    std::cout << "\nTESTING RANKS (TOO HIGH)\n" << std::endl;
+    try 
     {
-        Bureaucrat Jack ("Jack", 1);
-        Bureaucrat John ("John", 150);
-        John.loseGrade();
+        Bureaucrat Jack("Jack", 1);
+        Bureaucrat John("John", 150);
         Jack.winGrade();
+        John.loseGrade();
     }
     catch (std::exception &e)
     {
         std::cout << e.what() << std::endl;
     }
-    try
+    std::cout << "\nTESTING RANKS (TOO LOW)\n" << std::endl;
+    try 
     {
-        Bureaucrat Jack ("Jack", 0);
-        Bureaucrat John ("John", 150);
+        Bureaucrat John("John", 150);
+        Bureaucrat Jack("Jack", 1);
         John.loseGrade();
         Jack.winGrade();
     }
