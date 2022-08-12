@@ -26,7 +26,7 @@ class Form
     class GradeTooHighException : public std::exception {virtual const char* what() const throw();};
 
     protected:
-    std::string name;
+    std::string const name;
     int isSigned;
     int signGrade;
     int execGrade;

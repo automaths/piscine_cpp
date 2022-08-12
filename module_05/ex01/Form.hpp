@@ -25,10 +25,10 @@ class Form
     class GradeTooHighException : public std::exception {virtual const char* what() const throw();};
 
     private:
-    std::string name;
+    std::string const name;
     int isSigned;
-    int signGrade;
-    int execGrade;
+    int const signGrade;
+    int const execGrade;
 };
 
 std::ostream& operator<<(std::ostream &out, Form &TheForm);

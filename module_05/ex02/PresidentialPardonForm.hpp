@@ -4,7 +4,7 @@
 
 class PresidentialPardonForm: public Form
 {
-    std::string target;
+    std::string const target;
     public:
     PresidentialPardonForm(std::string str);
     ~PresidentialPardonForm();

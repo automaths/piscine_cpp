@@ -4,7 +4,7 @@
 
 class RobotomyRequestForm: public Form
 {
-    std::string target;
+    std::string const target;
     public:
     RobotomyRequestForm(std::string str);
     ~RobotomyRequestForm();

@@ -5,10 +5,11 @@ ShruberryCreationForm::~ShruberryCreationForm(){/*std::cout << "Class Shruberry 
 
 void ShruberryCreationForm::execute(Bureaucrat const& executor) const
 {
+    std::string title = this->target;
     if (executor.getGrade() > this->execGrade)
         throw Form::GradeTooHighException();
     std::ofstream newfile;
-    newfile.open((executor.getName().append("_shrubbery")).c_str());
+    newfile.open((title.append("_shrubbery")).c_str());
     std::cout << "Creating the Ascii Tree in the file "<< executor.getName().append("_shrubbery") << std::endl;
     newfile << "                                            .                   " << std::endl;
     newfile << "                                              .         ;       " << std::endl;

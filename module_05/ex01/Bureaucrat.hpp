@@ -23,7 +23,7 @@ class Bureaucrat {
     class GradeTooHighException : public std::exception {virtual const char* what() const throw();};
 
     private:
-    std::string name;
+    std::string const name;
     int grade;
 };
 

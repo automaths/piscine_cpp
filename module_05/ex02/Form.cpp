@@ -17,12 +17,7 @@ Form& Form::operator=(Form &f)
 {
     // std::cout << "Class Form Assignement Operator" << std::endl;
     if (this != &f)
-    {
-        this->name = f.getName();
         this->isSigned = f.getStatus();
-        this->signGrade = f.getSignGrade();
-        this->execGrade = f.getExecGrade();
-    }
     return (*this);
 }
 

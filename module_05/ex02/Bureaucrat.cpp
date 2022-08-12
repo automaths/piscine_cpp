@@ -17,10 +17,7 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat &b)
 {
     //std::cout << "Bureaucrat Class Assignement Operator" << std::endl;
     if (this != &b)
-    {
-        this->name = b.getName();
         this->grade = b.getGrade();
-    }
     return (*this);
 }
 

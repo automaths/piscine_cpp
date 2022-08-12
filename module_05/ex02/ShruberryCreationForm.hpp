@@ -4,7 +4,7 @@
 
 class ShruberryCreationForm: public Form
 {
-    std::string target;
+    std::string const target;
     public:
     ShruberryCreationForm(std::string str);
     ~ShruberryCreationForm();
