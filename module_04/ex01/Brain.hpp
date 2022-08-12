@@ -1,3 +1,5 @@
+#pragma once
+
 #include "Animal.hpp"
 
 class Brain
@@ -5,8 +7,10 @@ class Brain
     public:
     Brain();
     virtual ~Brain();
+    Brain(Brain const &b);
+    Brain& operator=(Brain const &b);
 
-    std::string getBrain();
+    std::string getIdeas(int n) const;
 
     private:
     std::string ideas[100];

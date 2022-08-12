@@ -1,8 +1,6 @@
-#ifndef CAT_HPP
-# define CAT_HPP
+#pragma once
 
 #include "Animal.hpp"
-// #include "Brain.hpp"
 
 class Cat : public Animal
 {
@@ -10,12 +8,11 @@ class Cat : public Animal
     Cat();
     virtual ~Cat();
     Cat(const Cat &d);
-    Cat operator=(const Cat &d);
+    Cat& operator=(const Cat &d);
 
     void makeSound() const;
+    Brain* getBrain() const;
 
     private:
     Brain *catBrain;
 };
-
-#endif

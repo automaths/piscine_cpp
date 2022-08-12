@@ -22,7 +22,7 @@ WrongCat::WrongCat(const WrongCat &d)
     this->type = d.getType();
 }
 
-WrongCat WrongCat::operator=(const WrongCat &d)
+WrongCat& WrongCat::operator=(const WrongCat &d)
 {
     if (this != &d)
     {

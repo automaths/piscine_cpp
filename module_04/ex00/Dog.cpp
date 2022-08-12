@@ -22,7 +22,7 @@ Dog::Dog(const Dog &d)
     this->type = d.getType();
 }
 
-Dog Dog::operator=(const Dog &d)
+Dog& Dog::operator=(const Dog &d)
 {
     if (this != &d)
     {

@@ -1,5 +1,4 @@
-#ifndef WRONGCAT_HPP
-# define WRONGCAT_HPP
+#pragma once
 
 #include "WrongCat.hpp"
 
@@ -9,9 +8,7 @@ class WrongCat : public WrongAnimal
     WrongCat();
     virtual ~WrongCat();
     WrongCat(const WrongCat &d);
-    WrongCat operator=(const WrongCat &d);
+    WrongCat& operator=(const WrongCat &d);
 
     void makeSound() const;
 };
-
-#endif

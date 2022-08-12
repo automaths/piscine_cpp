@@ -33,32 +33,14 @@ void    Bureaucrat::winGrade()
 {
     this->grade -= 1;
     if (this->grade < 1)
-        GradeTooHighException();
+        throw (Bureaucrat::GradeTooHighException(this->name));
 }
 
 void   Bureaucrat::loseGrade()
 {
     this->grade += 1;
     if (this->grade > 150)
-        GradeTooLowException();
-}
-
-void    Bureaucrat::GradeTooHighException()
-{
-    std::string str(this->name);
-    str.append(": His rank is already the highest, can't increase it");
-    Except e(str);
-    this->grade += 1;
-    throw (e);
-}
-
-void    Bureaucrat::GradeTooLowException()
-{
-    std::string str(this->name);
-    str.append(": His rank is already the smallest, can't decrease it");
-    Except e(str);
-    this->grade -= 1;
-    throw (e);
+        throw (Bureaucrat::GradeTooLowException(this->name));
 }
 
 void    Bureaucrat::GradeInsufficiantSignException(std::string title)

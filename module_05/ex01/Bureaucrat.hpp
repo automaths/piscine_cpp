@@ -27,9 +27,23 @@ class Bureaucrat {
     void winGrade();
     void loseGrade();
     void signForm(Form &theForm);
+    class GradeTooLowException : public std::exception {
+        public:
+        GradeTooLowException(std::string name): message(name.append(": rank too low")){}
+        virtual ~GradeTooLowException() throw() {}
+        virtual const char* what() const throw() {return (this->message.c_str());}
+        private:
+        std::string message;
+    };
+    class GradeTooHighException : public std::exception {
+        public:
+        GradeTooHighException(std::string name): message(name.append(": rank too high")){}
+        virtual ~GradeTooHighException() throw() {}
+        virtual const char* what() const throw() {return (this->message.c_str());}
+        private:
+        std::string message;
+    };
     void executeForm(Form const &Form);
-    void GradeTooHighException();
-    void GradeTooLowException();
     void AlreadySignedException(std::string title);
     void GradeInsufficiantSignException(std::string title);
     void GradeInsufficiantExecException(std::string title);

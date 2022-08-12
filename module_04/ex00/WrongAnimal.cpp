@@ -26,7 +26,7 @@ WrongAnimal::WrongAnimal(const WrongAnimal &a)
     this->type = a.getType();
 }
 
-WrongAnimal WrongAnimal::operator=(const WrongAnimal &a)
+WrongAnimal& WrongAnimal::operator=(const WrongAnimal &a)
 {
     if (this != &a)
     {

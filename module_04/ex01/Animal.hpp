@@ -1,5 +1,4 @@
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#pragma once
 
 #include <iostream>
 #include <string>
@@ -10,7 +9,7 @@ class Animal{
     Animal();
     virtual ~Animal();
     Animal(const Animal &a);
-    Animal operator=(const Animal &a);
+    Animal& operator=(const Animal &a);
 
     std::string   getType() const;
 
@@ -19,5 +18,3 @@ class Animal{
     protected:
     std::string type;
 };
-
-#endif

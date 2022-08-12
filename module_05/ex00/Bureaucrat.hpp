@@ -25,8 +25,22 @@ class Bureaucrat {
 
     void winGrade();
     void loseGrade();
-    void GradeTooHighException();
-    void GradeTooLowException();
+    class GradeTooLowException : public std::exception {
+        public:
+        GradeTooLowException(std::string name): message(name.append(": rank too low")){}
+        virtual ~GradeTooLowException() throw() {}
+        virtual const char* what() const throw() {return (this->message.c_str());}
+        private:
+        std::string message;
+    };
+    class GradeTooHighException : public std::exception {
+        public:
+        GradeTooHighException(std::string name): message(name.append(": rank too high")){}
+        virtual ~GradeTooHighException() throw() {}
+        virtual const char* what() const throw() {return (this->message.c_str());}
+        private:
+        std::string message;
+    };
 
     private:
     std::string name;

@@ -11,9 +11,9 @@ Bureaucrat::Bureaucrat(std::string str, int n)
 {
     this->name = str;
     if (n > 150)
-        GradeTooLowException();
+        throw (Bureaucrat::GradeTooLowException(this->name));
     if (n < 1)
-        GradeTooHighException();
+        throw (Bureaucrat::GradeTooHighException(this->name));
     this->grade = n;
     std::cout << "Bureaucrat String and Int Constructor" << std::endl;
 }
@@ -37,32 +37,14 @@ void    Bureaucrat::winGrade()
 {
     this->grade -= 1;
     if (this->grade < 1)
-        GradeTooHighException();
+        throw (Bureaucrat::GradeTooHighException(this->name));
 }
 
 void   Bureaucrat::loseGrade()
 {
     this->grade += 1;
     if (this->grade > 150)
-        GradeTooLowException();
-}
-
-void    Bureaucrat::GradeTooHighException()
-{
-    std::string str(this->name);
-    str.append(": Grade is too high");
-    Except e(str);
-    this->grade += 1;
-    throw (e);
-}
-
-void    Bureaucrat::GradeTooLowException()
-{
-    std::string str(this->name);
-    str.append(": Grade is too low");
-    Except e(str);
-    this->grade -= 1;
-    throw (e);
+        throw (Bureaucrat::GradeTooLowException(this->name));
 }
 
 std::ostream &operator<<(std::ostream &out, Bureaucrat const &worker)

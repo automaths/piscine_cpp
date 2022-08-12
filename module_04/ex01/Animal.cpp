@@ -29,7 +29,7 @@ Animal::Animal(const Animal &a)
     this->type = a.getType();
 }
 
-Animal Animal::operator=(const Animal &a)
+Animal& Animal::operator=(const Animal &a)
 {
     std::cout << "Copy assignment operator class Animal called" << std::endl;
     if (this != &a)

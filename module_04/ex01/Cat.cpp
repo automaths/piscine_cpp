@@ -21,18 +21,25 @@ Cat::~Cat()
 
 Cat::Cat(const Cat &d)
 {
-    std::cout << "Copy constructor class Cat called" << std::endl;
+    std::cout << "Copy constructor class cat called" << std::endl;
     this->type = d.getType();
     this->catBrain = new Brain;
+    this->catBrain = d.getBrain();
 }
 
-Cat Cat::operator=(const Cat &d)
+Cat& Cat::operator=(const Cat &d)
 {
     std::cout << "Copy assignment operator class Cat called" << std::endl;
+    this->catBrain = new Brain;
     if (this != &d)
     {
         this->type = d.getType();
     }
-    this->catBrain = new Brain;
+    this->catBrain = d.getBrain();
     return (*this);
+}
+
+Brain* Cat::getBrain() const
+{
+    return (this->catBrain);
 }

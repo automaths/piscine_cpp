@@ -22,7 +22,7 @@ Cat::Cat(const Cat &d)
     this->type = d.getType();
 }
 
-Cat Cat::operator=(const Cat &d)
+Cat& Cat::operator=(const Cat &d)
 {
     if (this != &d)
     {

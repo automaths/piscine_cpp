@@ -1,5 +1,4 @@
-#ifndef DOG_HPP
-# define DOG_HPP
+#pragma once
 
 #include "Animal.hpp"
 
@@ -9,9 +8,7 @@ class Dog : public Animal
     Dog();
     virtual ~Dog();
     Dog(const Dog &d);
-    Dog operator=(const Dog &d);
+    Dog& operator=(const Dog &d);
 
     void makeSound() const;
 };
-
-#endif
