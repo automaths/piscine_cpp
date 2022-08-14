@@ -1,11 +1,10 @@
-NAME	=	convert
+NAME	=	serializer
 
 CC		=	c++
 
 FLAGS	=	-Wall -Wextra -Werror -g -MMD -MP -std=c++98
 
 SRC		=	main.cpp \
-			Conversion.cpp \
 
 OBJ		:=	$(addprefix ./obj/,$(SRC:%.cpp=%.o))
 
