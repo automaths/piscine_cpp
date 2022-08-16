@@ -5,6 +5,7 @@ Span::Span(unsigned int size):_size(size), _stock(new int[size]){}
 Span::Span(Span &s): _size(s.getSize()){
 	if (this->_size > 0)
 	{
+		this->_stock = new int[this->_size];
 		for (int i = 0; i < this->_size; ++i)
 			this->_stock[i] = s.getStock(i);
 	}
@@ -14,6 +15,7 @@ Span& Span::operator=(Span &s){
 	{
 		if (_size > 0)
 			delete[] this->_stock;
+		this->_stock = new int[this->_size];
 		this->_size = s.getSize();
 		if (this->_size > 0)
 		{
