@@ -69,7 +69,6 @@ int main()
 		std::cout << "An exception has been caught: " << e.what() << std::endl;
 	}
 
-
 	std::cout << std::endl;
 	return 0;
 }

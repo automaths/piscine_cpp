@@ -2,7 +2,7 @@
 
 int main()
 {
-	std::cout << "COMPARING STD STACK TO MUTANT STACK" << std::endl;
+	std::cout << "\nCOMPARING STD STACK TO MUTANT STACK\n" << std::endl;
 
 	MutantStack<int> mstack;
 	std::stack<int> stdstack;
@@ -27,7 +27,7 @@ int main()
 	mstack.push(142);
 	stdstack.push(42);
 	stdstack.push(142);
-	std::cout << "Testing mutant stack iterator for displaying a copy" << std::endl;
+	std::cout << "\nTesting mutant stack iterator for displaying a copy" << std::endl;
 	MutantStack<int>::iterator it = mstack.begin();
 	MutantStack<int>::iterator ite = mstack.end();
 	++it;

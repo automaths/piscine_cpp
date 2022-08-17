@@ -16,7 +16,7 @@ class Array {
     T* getArray() const;
 
     T& operator[](unsigned int n);
-    T operator[](unsigned int n) const;
+    const T& operator[](unsigned int n) const;
 
     class WrongAccess : public std::exception {virtual const char* what() const throw();};
 
@@ -93,7 +93,7 @@ T& Array<T>::operator[](unsigned int n)
 }
 
 template <typename T>
-T Array<T>::operator[](unsigned int n) const
+const T& Array<T>::operator[](unsigned int n) const
 {
     if (n >= this->length || n < 0)
         throw WrongAccess();

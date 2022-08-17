@@ -5,14 +5,14 @@ int main()
 	try
 	{
 		std::vector<int> vect1(4);
-		vect1[0] = 1;
-		vect1[1] = 2;
-		vect1[2] = 3;
-		vect1[3] = 4;
+		vect1[0] = 17;
+		vect1[1] = 6;
+		vect1[2] = 36;
+		vect1[3] = 43;
 		std::cout << "\nContainer composed of values: " << vect1[0] << ", " << vect1[1] << ", " << vect1[2] << ", " << vect1[3] << std::endl;
 		std::vector<int>::iterator tmp;
-		std::cout << "Searching for the value 3 with easyfind" << std::endl;
-		tmp = easyfind(vect1, 3);
+		std::cout << "Searching for the value 36 with easyfind" << std::endl;
+		tmp = easyfind(vect1, 36);
 		std::cout << "The value has been found : it is " << *tmp << std::endl;
 	}
 	catch (std::exception &e)
